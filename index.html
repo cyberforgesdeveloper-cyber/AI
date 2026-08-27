@@ -11,18 +11,18 @@
     <meta name="keywords" content="AI caption generator, social media marketing tool, CyberForges, hashtag generator, LinkedIn captions, Instagram tools, Roman Urdu caption maker, Talha Tahir">
     <meta name="author" content="Talha Tahir">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://security.cyberforges.com/">
+    <link rel="canonical" href="https://ai.cyberforges.com/">
 
     <!-- Open Graph / Facebook / LinkedIn SEO Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://security.cyberforges.com/">
+    <meta property="og:url" content="https://ai.cyberforges.com/">
     <meta property="og:title" content="CyberForges | AI Social Media Caption & Hashtag Generator Suite">
     <meta property="og:description" content="Generate viral social media captions, power hashtags, and multi-variants instantly with CyberForges AI tools.">
     <meta property="og:site_name" content="CyberForges">
 
     <!-- Twitter Card SEO Meta Tags -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://security.cyberforges.com/">
+    <meta property="twitter:url" content="https://ai.cyberforges.com/">
     <meta property="twitter:title" content="CyberForges | AI Social Media Caption & Hashtag Generator Suite">
     <meta property="twitter:description" content="Free AI-powered social media caption and hashtag generator designed for creators and digital marketers.">
 
@@ -49,7 +49,7 @@
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-3.5 h-3.5 bg-cyan-400 rounded-full shadow-[0_0_12px_#22d3ee] animate-pulse"></div>
-                <span class="font-extrabold text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-xs font-normal text-slate-400 border border-slate-800 px-2 py-0.5 rounded ml-1">SEO Optimized</span></span>
+                <span class="font-extrabold text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-xs font-normal text-slate-400 border border-slate-800 px-2 py-0.5 rounded ml-1">AI v2.1</span></span>
             </div>
             <a href="https://security.cyberforges.com" target="_blank" class="text-xs bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 px-3.5 py-1.5 rounded-xl font-medium transition shadow-sm flex items-center gap-1.5">🌐 Security Audit Tool</a>
         </div>
@@ -64,7 +64,7 @@
                 <span>⚡ Powered by CyberForges Intelligence</span>
             </div>
             <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">AI Social Media <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500">Caption Suite</span></h1>
-            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">Create viral captions with targeted power tags, local Roman Urdu support, and instant history tracking.</p>
+            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">Create unique viral variations with distinct hooks, targeted power tags, and local Roman Urdu support.</p>
         </div>
 
         <!-- Card Layout -->
@@ -122,7 +122,7 @@
             <div id="outputSection" class="mt-10 hidden space-y-6 relative z-10">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                     <h3 class="text-cyan-400 font-bold text-xs uppercase tracking-wider">CyberForges AI Output Variants</h3>
-                    <span class="text-[11px] text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full font-medium">3 Options Ready</span>
+                    <span class="text-[11px] text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full font-medium">3 Unique Styles</span>
                 </div>
                 
                 <!-- Variant 1 -->
@@ -185,7 +185,7 @@
         <p>© 2026 <span class="text-cyan-400 font-semibold">CyberForges</span> Suite. Developed by Talha Tahir.</p>
     </footer>
 
-    <!-- JavaScript Logic -->
+    <!-- JavaScript Logic with Unique Variant Generator -->
     <script>
         document.addEventListener("DOMContentLoaded", loadHistory);
 
@@ -198,6 +198,7 @@
             const platform = document.getElementById('platform').value;
             const language = document.getElementById('language').value;
             const topic = document.getElementById('topic').value.trim();
+            const tone = document.getElementById('tone').value;
             const outputSection = document.getElementById('outputSection');
 
             if(!topic) {
@@ -205,27 +206,42 @@
                 return;
             }
 
-            let platformTags = "";
+            // Distinct Tag sets per platform to ensure variation
+            let tags1 = "", tags2 = "", tags3 = "";
             if(platform === 'linkedin') {
-                platformTags = "#CyberForges #WebDevelopment #SoftwareEngineering #TechInnovation #StartupLife #DigitalTransformation";
+                tags1 = "#CyberForges #WebDevelopment #SoftwareEngineering #TechInnovation";
+                tags2 = "#DigitalTransformation #TechLeadership #BusinessGrowth #StartupLife";
+                tags3 = "#FutureOfTech #SoftwareDevelopment #TechCommunity #Innovation";
             } else if(platform === 'instagram') {
-                platformTags = "#CyberForges #WebDev #TechLife #Coding #DeveloperLife #StartupCulture #TechTrends";
+                tags1 = "#CyberForges #WebDev #TechLife #CodingCommunity";
+                tags2 = "#DeveloperLife #StartupCulture #TechTrends #CodeLovers";
+                tags3 = "#TechReels #ProgrammerLife #WebDesign #DigitalCreators";
             } else if(platform === 'facebook') {
-                platformTags = "#CyberForges #TechSolutions #WebDevelopment #BusinessGrowth #DigitalServices #Innovation";
+                tags1 = "#CyberForges #TechSolutions #WebDevelopment #BusinessGrowth";
+                tags2 = "#DigitalServices #Innovation #TechCommunity #BusinessSuccess";
+                tags3 = "#WebSolutions #TechUpdates #Entrepreneurship #DigitalEra";
             } else {
-                platformTags = "#CyberForges #CodingLife #TechTok #WebDeveloper #ProgrammerHumor #SoftwareEngineer";
+                tags1 = "#CyberForges #CodingLife #TechTok #WebDeveloper";
+                tags2 = "#ProgrammerHumor #SoftwareEngineer #TechTrends #CodeLife";
+                tags3 = "#DevLife #TechHacks #CodeIt #FutureCoder";
             }
 
             let text1 = "", text2 = "", text3 = "";
 
             if(language === 'roman-urdu') {
-                text1 = `🔥 CyberForges ki taraf se ek aur zabardast update!\n\n${topic}\n\nAgar aapko yeh approach pasand aaye toh zaroor batayein aur apni ray ka izhar karein! 👇\n\n${platformTags}`;
-                text2 = `🚀 Ab intezaar kis baat ka?\n\n${topic}\n\nAjj hi CyberForges ke sath isay explore karein aur apna kaam asaan banayein! 💻\n\n${platformTags}`;
-                text3 = `⚡ CyberForges milestone unlocked:\n\n${topic}\n\nAfsane nahi, haqeeqat! Feedback zaroor dein! 🚀\n\n${platformTags}`;
+                text1 = `🔥 Ek aur zabardast update CyberForges ki taraf se!\n\n${topic}\n\nAgar aapko yeh approach pasand aaye toh zaroor batayein aur apni ray ka izhar karein! 👇\n\n${tags1}`;
+                
+                text2 = `🚀 Kya aap apne workflow ko behtar banana chahte hain? \n\n${topic}\n\nAjj hi CyberForges ke sath isay explore karein aur apna kaam asaan banayein! 💻✨\n\n${tags2}`;
+                
+                text3 = `⚡ CyberForges milestone unlocked:\n\n${topic}\n\nHaqeeqat aapke samne hai, feedback zaroor dein! 🚀\n\n${tags3}`;
             } else {
-                text1 = `🚀 Excited to share this milestone via CyberForges ecosystem!\n\n${topic}\n\nConsistency and dedication always pay off. What are your thoughts on this execution? Let's connect below! 👇\n\n${platformTags}`;
-                text2 = `🔥 Level up your workflow starting today with CyberForges tools!\n\n${topic}\n\nCheck it out now and take things to the next level. Link in bio! 🚀\n\n${platformTags}`;
-                text3 = `⚡ Major update live on CyberForges:\n\n${topic}\n\nDrop your feedback in the comments section! 👇\n\n${platformTags}`;
+                let tonePrefix = tone === 'excited' ? "🚀 Super excited to share this!" : tone === 'sales' ? "🔥 Special rollout alert:" : "💡 Professional insight:";
+                
+                text1 = `${tonePrefix} Major update via CyberForges ecosystem.\n\n${topic}\n\nConsistency and dedication always pay off. What are your thoughts on this execution? Let's connect below! 👇\n\n${tags1}`;
+                
+                text2 = `Level up your workflow starting today with CyberForges tools! ⚡\n\n${topic}\n\nCheck it out now and take things to the next level. Link in bio! 🚀\n\n${tags2}`;
+                
+                text3 = `⚡ Quick update live on CyberForges:\n\n${topic}\n\nDrop your feedback in the comments section! 👇\n\n${tags3}`;
             }
 
             document.getElementById('result1').innerText = text1;
