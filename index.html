@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     
     <!-- Primary SEO Meta Tags -->
     <title>CyberForges | Viral AI Social Media Caption & Hashtag Studio</title>
@@ -94,7 +97,7 @@
                     <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-cyan-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
                 </div>
-                <span class="font-black text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full ml-1 uppercase">Viral AI Suite</span></span>
+                <span class="font-black text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full ml-1 uppercase">v3.5 Live</span></span>
             </div>
             <a href="https://security.cyberforges.com" target="_blank" rel="noopener" class="text-xs bg-slate-900/80 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 px-3.5 py-1.5 rounded-xl font-medium transition shadow-sm hover:border-cyan-400/60 flex items-center gap-1.5">
                 <span>🛡️ Security Suite</span>
@@ -205,7 +208,7 @@
                         </span>
                         <button type="button" onclick="copyText('result3', this)" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 transition cursor-pointer">Copy</button>
                     </div>
-                    <div id="result2" class="text-slate-200 whitespace-pre-wrap text-sm leading-relaxed mb-3"></div>
+                    <div id="result3" class="text-slate-200 whitespace-pre-wrap text-sm leading-relaxed mb-3"></div>
                     <div class="text-[11px] text-slate-500 border-t border-slate-900/80 pt-2 flex justify-between">
                         <span id="count3">Characters: 0 | Words: 0</span>
                         <span class="text-blue-400 font-medium">Short & Direct</span>
@@ -263,7 +266,6 @@
                 const d = await res.json();
                 const list = d.data.map(m => m.id);
                 
-                // Check in order of best performance
                 const targets = [
                     "llama-3.3-70b-versatile",
                     "llama-3.3-70b-specdec",
