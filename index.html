@@ -108,7 +108,7 @@
         <!-- Hero Header -->
         <div class="text-center mb-10">
             <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 px-4 py-1.5 rounded-full text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-                <span>⚡ Real Human Tone • Ultra-Fast AI</span>
+                <span>⚡ Real Human Tone • Dynamic Auto-AI</span>
             </div>
             <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">Natural Social Media <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500">Caption & Tag Generator</span></h1>
             <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">Create authentic viral hooks, human-written posts, and targeted hashtags that sound genuine and boost engagement.</p>
@@ -261,13 +261,44 @@
         <p>© 2026 <span class="text-cyan-400 font-semibold">CyberForges</span> Suite. Developed by Talha Tahir.</p>
     </footer>
 
-    <!-- JavaScript Logic & Direct Ultra-Fast Groq AI API -->
+    <!-- JavaScript Logic with Dynamic Active Model Auto-Discovery -->
     <script>
         const GROQ_API_KEY = "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";
 
         function clearInput() {
             document.getElementById('topic').value = '';
             document.getElementById('outputSection').classList.add('hidden');
+        }
+
+        // Auto-detect the best active text generation model on this account
+        async function getActiveGroqModel() {
+            try {
+                const res = await fetch("https://api.groq.com/openai/v1/models", {
+                    headers: { 'Authorization': `Bearer ${GROQ_API_KEY}` }
+                });
+                if (!res.ok) return null;
+                const data = await res.json();
+                
+                // Prioritize available models
+                const preferred = [
+                    "llama-3.3-70b-versatile",
+                    "llama-3.1-8b-instant",
+                    "llama3-70b-8192",
+                    "llama3-8b-8192",
+                    "gemma2-9b-it"
+                ];
+
+                const availableIds = data.data.map(m => m.id);
+                for (const pref of preferred) {
+                    if (availableIds.includes(pref)) return pref;
+                }
+
+                // If none of preferred matches, pick first chat-capable model
+                const firstAvailable = availableIds.find(id => !id.includes("whisper") && !id.includes("guard"));
+                return firstAvailable || availableIds[0];
+            } catch (e) {
+                return "llama-3.1-8b-instant"; // fallback default
+            }
         }
 
         async function generateCaptions() {
@@ -290,7 +321,7 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                 </svg>
-                <span>Writing natural captions...</span>
+                <span>Discovering active model & generating...</span>
             `;
 
             const promptText = `
@@ -321,7 +352,10 @@ Return ONLY a valid JSON object matching this exact schema:
 `;
 
             try {
-                // Strictly using llama-3.1-8b-instant (Always live & free)
+                // Step 1: Find which model is actively working right now
+                const selectedModel = await getActiveGroqModel();
+
+                // Step 2: Call completion with that active model
                 const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
                     method: 'POST',
                     headers: { 
@@ -329,7 +363,7 @@ Return ONLY a valid JSON object matching this exact schema:
                         'Authorization': `Bearer ${GROQ_API_KEY}`
                     },
                     body: JSON.stringify({
-                        model: "llama-3.1-8b-instant",
+                        model: selectedModel,
                         messages: [
                             { role: "system", content: "You output only valid JSON containing variant1, variant2, and variant3." },
                             { role: "user", content: promptText }
