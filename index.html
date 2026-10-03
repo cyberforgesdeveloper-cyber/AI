@@ -3,139 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberForges | AI Social Media Caption & Hashtag Suite</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Free AI Social Media Caption & Hashtag Suite | CyberForges</title>
+    <meta name="description" content="Generate high-converting, viral social media captions and targeted hashtags for LinkedIn, Instagram, TikTok, and Facebook with native Roman Urdu support.">
+    <meta name="keywords" content="ai caption generator, instagram captions, linkedin post generator, roman urdu captions, hashtag generator, viral hooks, cyberforges">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ai.cyberforges.com">
+
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free AI Social Media Caption & Hashtag Suite">
+    <meta property="og:description" content="Create viral hooks, structured posts, and targeted hashtags with Roman Urdu and English styles in seconds.">
+    <meta property="og:url" content="https://ai.cyberforges.com">
+    <meta property="og:site_name" content="CyberForges AI">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CyberForges AI Social Media Caption Suite">
+    <meta name="twitter:description" content="Instant viral social media copy powered by AI.">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        darkbg: '#020617',
-                        cardbg: '#090d16',
-                        cybercyan: '#06b6d4',
+                        darkbg: '#030712',
+                        cardbg: '#0b1120',
+                        accentcyan: '#06b6d4',
+                        accentglow: '#22d3ee',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(6, 182, 212, 0.35)',
                     }
                 }
             }
         }
     </script>
-</head>
-<body class="bg-darkbg text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950 font-sans">
 
-    <!-- Header / Navbar -->
-    <header class="w-full border-b border-slate-800/80 bg-darkbg/90 backdrop-blur-md py-4 px-6 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
+    <!-- Schema.org JSON-LD for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "CyberForges AI Caption Generator",
+          "operatingSystem": "All",
+          "applicationCategory": "BusinessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is the CyberForges AI Caption Generator free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, it is completely free with no signup or credit card required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does it support Roman Urdu captions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, it provides native support for conversational Roman Urdu alongside standard English."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-darkbg text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950 font-sans antialiased">
+
+    <!-- Top Navigation -->
+    <header class="w-full border-b border-slate-800/80 bg-darkbg/80 backdrop-blur-xl py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-3.5 h-3.5 bg-cyan-400 rounded-full shadow-[0_0_12px_#22d3ee] animate-pulse"></div>
-                <span class="font-extrabold text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-xs font-normal text-slate-400 border border-slate-800 px-2 py-0.5 rounded ml-1">AI v2.9</span></span>
+                <div class="relative flex items-center justify-center">
+                    <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
+                </div>
+                <span class="font-black text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full ml-1 uppercase">AI Studio</span></span>
             </div>
-            <a href="https://security.cyberforges.com" target="_blank" class="text-xs bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 px-3.5 py-1.5 rounded-xl font-medium transition shadow-sm flex items-center gap-1.5">🌐 Security Audit Tool</a>
+            <a href="https://security.cyberforges.com" target="_blank" rel="noopener" class="text-xs bg-slate-900/80 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 px-3.5 py-1.5 rounded-xl font-medium transition shadow-sm hover:border-cyan-400/60 flex items-center gap-1.5">
+                <span>🛡️ Security Suite</span>
+            </a>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-4xl w-full mx-auto py-12 px-4 flex-grow">
+    <main class="max-w-4xl w-full mx-auto py-12 px-4 sm:px-6 flex-grow">
         
-        <!-- Hero Section -->
+        <!-- Hero Header -->
         <div class="text-center mb-10">
-            <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1 rounded-full text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4">
-                <span>⚡ Powered by CyberForges Intelligence</span>
+            <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 px-4 py-1.5 rounded-full text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+                <span>⚡ Real-Time Gemini AI Engine</span>
             </div>
-            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">AI Social Media <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500">Caption Suite</span></h1>
-            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">Create unique viral variations with distinct hooks, targeted power tags, and local Roman Urdu support.</p>
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">AI Social Media <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500">Caption & Tag Generator</span></h1>
+            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">Create engagement-focused viral copy, high-converting CTAs, and targeted hashtag clusters in seconds.</p>
         </div>
 
-        <!-- Designer Card -->
-        <div class="bg-cardbg border border-slate-800/90 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl relative overflow-hidden">
-            <div class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Tool App Card -->
+        <section class="bg-cardbg/90 border border-slate-800 rounded-3xl p-6 sm:p-9 shadow-glow backdrop-blur-2xl relative overflow-hidden">
+            <div class="absolute -top-32 -right-32 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5 relative z-10">
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Target Platform</label>
-                    <select id="platform" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition">
-                        <option value="linkedin">LinkedIn (Professional & Authority)</option>
-                        <option value="instagram">Instagram (Engaging & Emojis)</option>
-                        <option value="facebook">Facebook (Storytelling & Community)</option>
-                        <option value="tiktok">TikTok / Reels (Short & Viral Hooks)</option>
+                    <label for="platform" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Target Platform</label>
+                    <select id="platform" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition text-sm">
+                        <option value="LinkedIn">LinkedIn (Professional & Authority)</option>
+                        <option value="Instagram">Instagram (Visual & Emojis)</option>
+                        <option value="Facebook">Facebook (Community & Conversational)</option>
+                        <option value="TikTok & Reels">TikTok / Reels (Viral Short Hooks)</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Language Style</label>
-                    <select id="language" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition">
-                        <option value="roman-urdu">Roman Urdu (Desi Connect)</option>
-                        <option value="english">English (Global Reach)</option>
+                    <label for="language" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Language Style</label>
+                    <select id="language" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition text-sm">
+                        <option value="Roman Urdu">Roman Urdu (Urdu in English Script)</option>
+                        <option value="English">English (Global B2B/B2C)</option>
                     </select>
                 </div>
             </div>
 
             <div class="mb-5 relative z-10">
-                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Tone of Voice</label>
-                <select id="tone" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition">
-                    <option value="professional">Professional & Authoritative</option>
-                    <option value="excited">Excited & Energetic</option>
-                    <option value="casual">Casual & Friendly</option>
-                    <option value="sales">Sales & Promotional</option>
+                <label for="tone" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Tone of Voice</label>
+                <select id="tone" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition text-sm">
+                    <option value="Professional & Authoritative">Professional & Authoritative</option>
+                    <option value="Excited & Energetic">Excited & Energetic</option>
+                    <option value="Casual & Relatable">Casual & Relatable</option>
+                    <option value="Direct Sales & Promotional">Direct Sales & Promotional</option>
                 </select>
             </div>
 
             <div class="mb-6 relative z-10">
                 <div class="flex justify-between items-center mb-2">
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Project / Topic Description</label>
-                    <button onclick="clearInput()" class="text-xs text-slate-500 hover:text-cyan-400 transition cursor-pointer">Clear</button>
+                    <label for="topic" class="block text-xs font-bold uppercase tracking-wider text-slate-400">Topic or Announcement</label>
+                    <button type="button" onclick="clearInput()" class="text-xs text-slate-500 hover:text-cyan-400 transition cursor-pointer">Clear</button>
                 </div>
-                <textarea id="topic" rows="3" placeholder="e.g., Launched a new web security tool called CyberForges..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition resize-none text-sm"></textarea>
+                <textarea id="topic" rows="3" placeholder="e.g., We just launched our web design & security audit service for startups..." class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition resize-none text-sm placeholder-slate-600"></textarea>
             </div>
 
-            <button onclick="generateCaptions()" class="w-full bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-slate-950 font-black py-4 rounded-xl transition duration-300 shadow-lg shadow-cyan-500/25 cursor-pointer transform active:scale-[0.99] tracking-wide relative z-10">
-                Generate Optimized Captions & Tags 🚀
+            <button type="button" id="submitBtn" onclick="generateCaptions()" class="w-full bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-black py-4 rounded-xl transition duration-300 shadow-lg shadow-cyan-500/25 cursor-pointer transform active:scale-[0.99] tracking-wide relative z-10 flex items-center justify-center gap-2">
+                <span>Generate Captions with Real AI 🚀</span>
             </button>
 
             <!-- Output Section -->
             <div id="outputSection" class="mt-10 hidden space-y-6 relative z-10">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <h3 class="text-cyan-400 font-bold text-xs uppercase tracking-wider">CyberForges AI Output Variants</h3>
+                    <h3 class="text-cyan-400 font-bold text-xs uppercase tracking-wider">AI Generated Variants</h3>
                     <span class="text-[11px] text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full font-medium">3 Unique Styles</span>
                 </div>
                 
                 <!-- Variant 1 -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 hover:border-cyan-500/50 transition shadow-md">
+                <div class="bg-slate-950 border border-slate-800/90 rounded-2xl p-5 hover:border-cyan-500/40 transition shadow-md">
                     <div class="flex justify-between items-center mb-3">
-                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> 1. Authority / Thought Leadership</span>
-                        <button onclick="copyText('result1', this)" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800 transition cursor-pointer">Copy</button>
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span> 1. Authority & Thought Leadership
+                        </span>
+                        <button type="button" onclick="copyText('result1', this)" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 transition cursor-pointer">Copy</button>
                     </div>
                     <div id="result1" class="text-slate-300 whitespace-pre-wrap text-sm leading-relaxed mb-3"></div>
-                    <div class="text-[11px] text-slate-500 border-t border-slate-900 pt-2 flex justify-between">
+                    <div class="text-[11px] text-slate-500 border-t border-slate-900/80 pt-2 flex justify-between">
                         <span id="count1">Characters: 0 | Words: 0</span>
                         <span class="text-cyan-400 font-medium">Ready to Publish</span>
                     </div>
                 </div>
 
                 <!-- Variant 2 -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 hover:border-cyan-500/50 transition shadow-md">
+                <div class="bg-slate-950 border border-slate-800/90 rounded-2xl p-5 hover:border-teal-500/40 transition shadow-md">
                     <div class="flex justify-between items-center mb-3">
-                        <span class="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-teal-400"></span> 2. Value-Driven / Conversion Focus</span>
-                        <button onclick="copyText('result2', this)" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800 transition cursor-pointer">Copy Text</button>
+                        <span class="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-teal-400"></span> 2. Value-Driven & High Engagement
+                        </span>
+                        <button type="button" onclick="copyText('result2', this)" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 transition cursor-pointer">Copy</button>
                     </div>
                     <div id="result2" class="text-slate-300 whitespace-pre-wrap text-sm leading-relaxed mb-3"></div>
-                    <div class="text-[11px] text-slate-500 border-t border-slate-900 pt-2 flex justify-between">
+                    <div class="text-[11px] text-slate-500 border-t border-slate-900/80 pt-2 flex justify-between">
                         <span id="count2">Characters: 0 | Words: 0</span>
-                        <span class="text-cyan-400 font-medium">Ready to Publish</span>
+                        <span class="text-teal-400 font-medium">Ready to Publish</span>
                     </div>
                 </div>
 
                 <!-- Variant 3 -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 hover:border-cyan-500/50 transition shadow-md">
+                <div class="bg-slate-950 border border-slate-800/90 rounded-2xl p-5 hover:border-blue-500/40 transition shadow-md">
                     <div class="flex justify-between items-center mb-3">
-                        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-500"></span> 3. Viral / Short Punchy Hook</span>
-                        <button onclick="copyText('result3', this)" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800 transition cursor-pointer">Copy Text</button>
+                        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-400"></span> 3. Short Punchy Viral Hook
+                        </span>
+                        <button type="button" onclick="copyText('result3', this)" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 transition cursor-pointer">Copy</button>
                     </div>
                     <div id="result3" class="text-slate-300 whitespace-pre-wrap text-sm leading-relaxed mb-3"></div>
-                    <div class="text-[11px] text-slate-500 border-t border-slate-900 pt-2 flex justify-between">
+                    <div class="text-[11px] text-slate-500 border-t border-slate-900/80 pt-2 flex justify-between">
                         <span id="count3">Characters: 0 | Words: 0</span>
-                        <span class="text-cyan-400 font-medium">Ready to Publish</span>
+                        <span class="text-blue-400 font-medium">Ready to Publish</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- SEO Informational Article Section (Rankings ke liye zaroori content) -->
+        <article class="mt-16 space-y-12 border-t border-slate-800/80 pt-12">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-4">Why Craft AI-Powered Social Captions?</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">Writing consistent, captivating social media copy across platforms like LinkedIn, Instagram, Facebook, and TikTok takes considerable effort. The <strong>CyberForges AI Caption Suite</strong> helps content creators, agency owners, and developers convert raw ideas into structured, engagement-optimized posts within seconds.</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Whether you require high-authority B2B copy for LinkedIn or relatable Roman Urdu hooks tailored for Pakistani and South Asian audiences, this generator creates multiple strategic variations automatically.</p>
+            </div>
+
+            <!-- Features Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cardbg border border-slate-800/80 p-5 rounded-2xl">
+                    <h3 class="text-cyan-400 font-semibold mb-2">⚡ 3 Targeted Variations</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Choose between professional thought leadership, direct conversion, or viral short hooks with one click.</p>
+                </div>
+                <div class="bg-cardbg border border-slate-800/80 p-5 rounded-2xl">
+                    <h3 class="text-teal-400 font-semibold mb-2">🇵🇰 Native Roman Urdu</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Connect naturally with regional audiences using culturally resonant tone presets and natural vocabulary.</p>
+                </div>
+                <div class="bg-cardbg border border-slate-800/80 p-5 rounded-2xl">
+                    <h3 class="text-blue-400 font-semibold mb-2"># Clean Tag Sets</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Platform-compliant hashtag clustering designed to expand organic reach without looking spammy.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+                <div class="space-y-4">
+                    <div class="bg-cardbg border border-slate-800/80 p-5 rounded-xl">
+                        <h3 class="text-white font-medium text-sm mb-2">Is this tool free to use?</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Yes, you can generate unlimited captions and hashtags with zero subscription or registration barriers.</p>
+                    </div>
+                    <div class="bg-cardbg border border-slate-800/80 p-5 rounded-xl">
+                        <h3 class="text-white font-medium text-sm mb-2">How do Roman Urdu captions help increase engagement?</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Audiences in South Asia respond significantly better to conversational Roman Urdu because it mimics natural community conversations.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <!-- Footer -->
@@ -143,64 +261,107 @@
         <p>© 2026 <span class="text-cyan-400 font-semibold">CyberForges</span> Suite. Developed by Talha Tahir.</p>
     </footer>
 
-    <!-- JavaScript Smart Logic -->
+    <!-- JavaScript Smart Logic & Gemini API -->
     <script>
+        // -------------------------------------------------------------
+        // STEP: Apni free Gemini API Key yahan paste karein
+        // Link: https://aistudio.google.com/
+        // -------------------------------------------------------------
+        const GEMINI_API_KEY = "PASTE_YOUR_GEMINI_API_KEY_HERE";
+
         function clearInput() {
             document.getElementById('topic').value = '';
             document.getElementById('outputSection').classList.add('hidden');
         }
 
-        function generateCaptions() {
+        async function generateCaptions() {
             const platform = document.getElementById('platform').value;
             const language = document.getElementById('language').value;
             const topic = document.getElementById('topic').value.trim();
             const tone = document.getElementById('tone').value;
             const outputSection = document.getElementById('outputSection');
+            const submitBtn = document.getElementById('submitBtn');
 
-            if(!topic) {
+            if (!topic) {
                 alert('Please enter a topic or description first!');
                 return;
             }
 
-            let tags = "";
-            if(platform === 'linkedin') {
-                tags = "#CyberForges #SoftwareEngineering #TechInnovation #BusinessGrowth #TalhaTahir";
-            } else if(platform === 'instagram') {
-                tags = "#CyberForges #TechLife #CodingCommunity #StartupCulture #TalhaTahir";
-            } else if(platform === 'facebook') {
-                tags = "#CyberForges #TechSolutions #WebDevelopment #BusinessSuccess";
-            } else {
-                tags = "#CyberForges #CodingLife #TechTok #WebDeveloper #TalhaTahir";
+            if (!GEMINI_API_KEY || GEMINI_API_KEY === "PASTE_YOUR_GEMINI_API_KEY_HERE") {
+                alert('Please insert your free Gemini API Key in line 232 of index.html to activate AI.');
+                return;
             }
 
-            let text1 = "", text2 = "", text3 = "";
+            // Button loading animation
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-slate-950 inline-block mr-2" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+                <span>Generating with Gemini AI...</span>
+            `;
 
-            if(language === 'roman-urdu') {
-                text1 = `🌟 Industry Update & Professional Milestone:\n\n${topic}\n\nEk behtareen execution hamesha long-term results deti hai. Is project ke hawale se aapki kya ray hai? Comments section mein zaroor share karein! 👇\n\n${tags}`;
-                
-                text2 = `🚀 Smart Solutions & Workflow Optimization:\n\n${topic}\n\nAgar aap apne business ya daily tasks ko next level par le jana chahte hain, toh yeh solution aapke liye design kiya gaya hai. Explore karein aur apna feedback dein! 💻✨\n\n${tags}`;
-                
-                text3 = `⚡ CyberForges Quick Spotlight:\n\n${topic}\n\nHaqeeqat kaam mein nazar aati hai. Visit karein aur apne views share karein! 🚀\n\n${tags}`;
-            } else {
-                let tonePrefix = tone === 'excited' ? "🚀 Super excited to share this!" : tone === 'sales' ? "🔥 Special rollout alert:" : tone === 'casual' ? "👋 Quick update:" : "💡 Thought Leadership & Strategic Execution:";
-                
-                text1 = `${tonePrefix}\n\n${topic}\n\nIn today's fast-paced digital ecosystem, building robust and scalable solutions is critical. What are your thoughts on modern workflow engineering? Let's discuss below! 👇\n\n${tags}`;
-                
-                text2 = `🚀 Streamlining Productivity & Efficiency:\n\n${topic}\n\nDesigned to eliminate friction and deliver seamless performance. Check out how this implementation elevates daily standards. Link in bio! 💻\n\n${tags}`;
-                
-                text3 = `⚡ Milestone Achieved at CyberForges:\n\n${topic}\n\nExecution speaks louder than words. Thoughts and feedback are always welcome! 🚀\n\n${tags}`;
+            const promptText = `
+You are a viral social media strategist.
+Create 3 high-converting post captions for:
+- Platform: ${platform}
+- Target Language: ${language === 'Roman Urdu' ? 'Conversational Roman Urdu (Urdu written in English alphabet, natural tone)' : 'Fluent English'}
+- Tone: ${tone}
+- Topic: ${topic}
+
+Strict Instructions:
+1. Variant 1: Authority, thought leadership, clear formatting, with 4-5 relevant hashtags.
+2. Variant 2: Value-driven, community hook, strong call-to-action (CTA), with 4-5 relevant hashtags.
+3. Variant 3: Short, punchy, curiosity-inducing hook for maximum shares/comments, with 3-4 hashtags.
+4. Output strictly valid raw JSON only without markdown formatting. Schema:
+{
+  "variant1": "text...",
+  "variant2": "text...",
+  "variant3": "text..."
+}
+`;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: promptText }] }],
+                        generationConfig: { 
+                            responseMimeType: "application/json",
+                            temperature: 0.7 
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const rawJson = data.candidates[0].content.parts[0].text;
+                const result = JSON.parse(rawJson);
+
+                document.getElementById('result1').innerText = result.variant1 || 'Variant 1 generation failed.';
+                document.getElementById('result2').innerText = result.variant2 || 'Variant 2 generation failed.';
+                document.getElementById('result3').innerText = result.variant3 || 'Variant 3 generation failed.';
+
+                updateStats('result1', 'count1', result.variant1 || '');
+                updateStats('result2', 'count2', result.variant2 || '');
+                updateStats('result3', 'count3', result.variant3 || '');
+
+                outputSection.classList.remove('hidden');
+                outputSection.scrollIntoView({ behavior: 'smooth' });
+
+            } catch (err) {
+                console.error(err);
+                alert('Generation failed. Please verify your internet connection and ensure your Gemini API key is valid.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
             }
-
-            document.getElementById('result1').innerText = text1;
-            document.getElementById('result2').innerText = text2;
-            document.getElementById('result3').innerText = text3;
-
-            updateStats('result1', 'count1', text1);
-            updateStats('result2', 'count2', text2);
-            updateStats('result3', 'count3', text3);
-
-            outputSection.classList.remove('hidden');
-            outputSection.scrollIntoView({ behavior: 'smooth' });
         }
 
         function updateStats(resultId, countId, text) {
