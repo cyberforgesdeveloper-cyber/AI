@@ -320,30 +320,52 @@ Return ONLY a valid JSON object matching this exact schema:
 }
 `;
 
+            // Active free models on Groq
+            const candidateModels = [
+                "llama-3.1-70b-versatile",
+                "llama-3.1-8b-instant",
+                "llama3-70b-8192",
+                "mixtral-8x7b-32768"
+            ];
+
+            let data = null;
+            let lastError = null;
+
+            for (const modelName of candidateModels) {
+                try {
+                    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${GROQ_API_KEY}`
+                        },
+                        body: JSON.stringify({
+                            model: modelName,
+                            messages: [
+                                { role: "system", content: "You output only valid JSON containing variant1, variant2, and variant3." },
+                                { role: "user", content: promptText }
+                            ],
+                            response_format: { type: "json_object" },
+                            temperature: 0.85
+                        })
+                    });
+
+                    const resJson = await response.json();
+
+                    if (response.ok) {
+                        data = resJson;
+                        break;
+                    } else {
+                        lastError = resJson?.error?.message || `Failed on ${modelName}`;
+                    }
+                } catch (err) {
+                    lastError = err.message;
+                }
+            }
+
             try {
-                const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${GROQ_API_KEY}`
-                    },
-                    body: JSON.stringify({
-                        model: "llama-3.3-70b-versatile",
-                        messages: [
-                            { role: "system", content: "You output only valid JSON containing variant1, variant2, and variant3." },
-                            { role: "user", content: promptText }
-                        ],
-                        response_format: { type: "json_object" },
-                        temperature: 0.85
-                    })
-                });
-
-                const data = await response.json();
-
-                if (!response.ok) {
-                    const errorMsg = data?.error?.message || `API error code: ${response.status}`;
-                    alert('API Error: ' + errorMsg);
-                    throw new Error(errorMsg);
+                if (!data) {
+                    throw new Error(lastError || 'Could not connect to Groq models.');
                 }
 
                 const rawJson = data.choices[0].message.content;
@@ -362,6 +384,7 @@ Return ONLY a valid JSON object matching this exact schema:
 
             } catch (err) {
                 console.error(err);
+                alert('API Error: ' + err.message);
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
