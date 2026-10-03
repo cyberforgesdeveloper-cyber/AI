@@ -97,7 +97,7 @@
                     <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-cyan-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
                 </div>
-                <span class="font-black text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full ml-1 uppercase">v3.5 Live</span></span>
+                <span class="font-black text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full ml-1 uppercase">v4.0 Final</span></span>
             </div>
             <a href="https://security.cyberforges.com" target="_blank" rel="noopener" class="text-xs bg-slate-900/80 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 px-3.5 py-1.5 rounded-xl font-medium transition shadow-sm hover:border-cyan-400/60 flex items-center gap-1.5">
                 <span>🛡️ Security Suite</span>
@@ -200,7 +200,7 @@
                     </div>
                 </div>
 
-                <!-- Variant 3 -->
+                <!-- Variant 3 (ID fixed here) -->
                 <div class="bg-slate-950 border border-slate-800/90 rounded-2xl p-5 hover:border-blue-500/40 transition shadow-md">
                     <div class="flex justify-between items-center mb-3">
                         <span class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-2">
@@ -217,7 +217,7 @@
             </div>
         </section>
 
-        <!-- SEO Article & Information Section -->
+        <!-- SEO Article Section -->
         <article class="mt-16 space-y-12 border-t border-slate-800/80 pt-12">
             <div>
                 <h2 class="text-2xl font-bold text-white mb-4">Engineered for Organic Algorithm Reach</h2>
@@ -308,7 +308,7 @@
                 <span>Generating creator-grade copy...</span>
             `;
 
-            const systemPrompt = "You are an elite, top 1% social media content strategist and ghostwriter. You write viral, authentic, scroll-stopping copy with zero robotic fluff. Output raw JSON only.";
+            const systemPrompt = "You are an elite social media content strategist. You write viral, authentic, scroll-stopping copy with zero robotic fluff. Output raw JSON only.";
 
             const userPrompt = `
 Topic: "${topic}"
@@ -361,9 +361,14 @@ Return ONLY valid JSON matching this exact structure:
                 const rawJson = data.choices[0].message.content;
                 const result = JSON.parse(rawJson);
 
-                document.getElementById('result1').innerText = result.variant1 || 'Failed to generate variant 1';
-                document.getElementById('result2').innerText = result.variant2 || 'Failed to generate variant 2';
-                document.getElementById('result3').innerText = result.variant3 || 'Failed to generate variant 3';
+                // Set content safely
+                const r1 = document.getElementById('result1');
+                const r2 = document.getElementById('result2');
+                const r3 = document.getElementById('result3');
+
+                if (r1) r1.innerText = result.variant1 || 'Failed to generate variant 1';
+                if (r2) r2.innerText = result.variant2 || 'Failed to generate variant 2';
+                if (r3) r3.innerText = result.variant3 || 'Failed to generate variant 3';
 
                 updateStats('result1', 'count1', result.variant1 || '');
                 updateStats('result2', 'count2', result.variant2 || '');
@@ -382,13 +387,17 @@ Return ONLY valid JSON matching this exact structure:
         }
 
         function updateStats(resultId, countId, text) {
+            const el = document.getElementById(countId);
+            if (!el) return;
             const charCount = text.length;
             const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-            document.getElementById(countId).innerText = `Characters: ${charCount} | Words: ${wordCount}`;
+            el.innerText = `Characters: ${charCount} | Words: ${wordCount}`;
         }
 
         function copyText(elementId, btn) {
-            const text = document.getElementById(elementId).innerText;
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const text = el.innerText;
             navigator.clipboard.writeText(text);
             const originalText = btn.innerText;
             btn.innerText = "Copied! ✅";
