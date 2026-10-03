@@ -97,7 +97,7 @@
                     <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-cyan-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
                 </div>
-                <span class="font-black text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full ml-1 uppercase">v4.0 Final</span></span>
+                <span class="font-black text-xl tracking-wider text-white">CYBER<span class="text-cyan-400">FORGES</span> <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full ml-1 uppercase">v4.1 Fast</span></span>
             </div>
             <a href="https://security.cyberforges.com" target="_blank" rel="noopener" class="text-xs bg-slate-900/80 hover:bg-slate-800 text-cyan-400 border border-cyan-500/30 px-3.5 py-1.5 rounded-xl font-medium transition shadow-sm hover:border-cyan-400/60 flex items-center gap-1.5">
                 <span>🛡️ Security Suite</span>
@@ -200,7 +200,7 @@
                     </div>
                 </div>
 
-                <!-- Variant 3 (ID fixed here) -->
+                <!-- Variant 3 -->
                 <div class="bg-slate-950 border border-slate-800/90 rounded-2xl p-5 hover:border-blue-500/40 transition shadow-md">
                     <div class="flex justify-between items-center mb-3">
                         <span class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-2">
@@ -217,7 +217,7 @@
             </div>
         </section>
 
-        <!-- SEO Article Section -->
+        <!-- SEO Article & Information Section -->
         <article class="mt-16 space-y-12 border-t border-slate-800/80 pt-12">
             <div>
                 <h2 class="text-2xl font-bold text-white mb-4">Engineered for Organic Algorithm Reach</h2>
@@ -248,7 +248,7 @@
         <p>© 2026 <span class="text-cyan-400 font-semibold">CyberForges</span> Suite. Developed by Talha Tahir.</p>
     </footer>
 
-    <!-- Direct Auto-Resolving AI Script -->
+    <!-- Direct Groq API Script with Token Budgeting -->
     <script>
         const GROQ_API_KEY = "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";
 
@@ -272,14 +272,14 @@
                     "llama-3.2-11b-vision-preview",
                     "llama-3.2-3b-preview",
                     "llama-3.2-1b-preview",
-                    "gemma2-9b-it"
+                    "qwen/qwen3.8-27b"
                 ];
 
                 for (const t of targets) {
                     if (list.includes(t)) return t;
                 }
                 const fallback = list.find(id => !id.includes("whisper") && !id.includes("guard"));
-                return fallback || "llama-3.3-70b-versatile";
+                return fallback || list[0] || "llama-3.3-70b-versatile";
             } catch (e) {
                 return "llama-3.3-70b-versatile";
             }
@@ -308,33 +308,29 @@
                 <span>Generating creator-grade copy...</span>
             `;
 
-            const systemPrompt = "You are an elite social media content strategist. You write viral, authentic, scroll-stopping copy with zero robotic fluff. Output raw JSON only.";
+            const systemPrompt = "You are a top social media ghostwriter. You write crisp, viral, human copy with zero fluff. Output strictly JSON only.";
 
             const userPrompt = `
 Topic: "${topic}"
-Target Platform: ${platform}
-Language: ${language === 'English' ? 'Modern conversational English (creator style, punchy, crisp, engaging).' : 'Natural, casual Roman Urdu (as typed on Pakistani social media/WhatsApp, not formal Urdu).'}
-Desired Vibe: ${tone}
+Platform: ${platform}
+Language: ${language === 'English' ? 'Modern conversational English (punchy, crisp, engaging).' : 'Natural, casual Roman Urdu.'}
+Tone: ${tone}
 
-STRICT WRITING RULES:
-1. NEVER use generic AI buzzwords: "delve", "game-changer", "tapestry", "in today's digital age", "testament", "revolutionize", "unleash", "elevate", "beacon".
-2. HOOK: Sentence 1 MUST stop the scroll immediately.
-3. FORMATTING: Use 1-2 sentence paragraphs with clean line breaks. Very mobile-friendly.
-4. EMOJIS: 2 to 4 relevant emojis maximum.
-5. HASHTAGS: Provide 3 to 5 targeted hashtags at the bottom.
+RULES:
+- No AI buzzwords ('delve', 'game-changer', 'tapestry').
+- Concise and punchy. Keep each variant under 70 words.
+- Variant 1: Hook -> Brief story/lesson -> CTA.
+- Variant 2: Hook -> 3 bullet points -> CTA.
+- Variant 3: 2-line hook + 3 hashtags.
 
-Generate 3 DISTINCT variations:
-- variant1: Story / Insight Angle (Strong Hook -> Real Context -> Valuable Takeaway -> Engaging Question).
-- variant2: Actionable Breakdown Angle (Hook -> 3 crisp bullet points -> Call-to-Action).
-- variant3: Short Viral Hook Angle (2-3 punchy lines + 3 targeted hashtags).
-
-Return ONLY valid JSON matching this exact structure:
+Return valid JSON strictly matching:
 {"variant1": "...", "variant2": "...", "variant3": "..."}
 `;
 
             try {
                 const modelToUse = await resolveWorkingModel();
 
+                // Explicit max_tokens added to prevent OTPM limit error
                 const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
                     method: 'POST',
                     headers: { 
@@ -348,7 +344,8 @@ Return ONLY valid JSON matching this exact structure:
                             { role: "user", content: userPrompt }
                         ],
                         response_format: { type: "json_object" },
-                        temperature: 0.8
+                        temperature: 0.75,
+                        max_tokens: 800
                     })
                 });
 
@@ -361,7 +358,6 @@ Return ONLY valid JSON matching this exact structure:
                 const rawJson = data.choices[0].message.content;
                 const result = JSON.parse(rawJson);
 
-                // Set content safely
                 const r1 = document.getElementById('result1');
                 const r2 = document.getElementById('result2');
                 const r3 = document.getElementById('result3');
