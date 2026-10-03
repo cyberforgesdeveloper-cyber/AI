@@ -293,9 +293,8 @@
                 <span>Writing natural captions...</span>
             `;
 
-            // Prompt specifically calibrated to eliminate AI-like syntax
             const promptText = `
-You are a real, skilled social media creator. Write 3 DISTINCT post captions about this topic: "${topic}".
+You are a skilled social media creator. Write 3 DISTINCT post captions about this topic: "${topic}".
 
 Parameters:
 - Target Platform: ${platform}
@@ -305,7 +304,7 @@ Parameters:
 STRICT ANTI-AI RULES:
 1. NEVER use generic AI buzzwords: "delve", "game-changer", "tapestry", "in today's fast-paced world", "testament", "revolutionize", "unleash", "elevate", "beacon", "navigating".
 2. Write with human rhythm: natural sentence lengths, authentic line breaks for easy mobile reading, and at most 2-4 well-placed emojis.
-3. Roman Urdu must NOT be a stiff Google Translation. It must feel like an authentic person typed it from their phone.
+3. Roman Urdu must NOT be a stiff translation. It must feel like an authentic person typed it from their phone.
 4. Keep the tone grounded, engaging, and direct.
 
 Generate 3 unique variants:
@@ -334,11 +333,13 @@ Return ONLY a valid JSON object matching this exact schema:
                     })
                 });
 
+                const data = await response.json();
+
                 if (!response.ok) {
-                    throw new Error(`API error: ${response.status}`);
+                    const errorMsg = data?.error?.message || `API error code: ${response.status}`;
+                    throw new Error(errorMsg);
                 }
 
-                const data = await response.json();
                 const rawJson = data.candidates[0].content.parts[0].text;
                 const result = JSON.parse(rawJson);
 
@@ -354,8 +355,8 @@ Return ONLY a valid JSON object matching this exact schema:
                 outputSection.scrollIntoView({ behavior: 'smooth' });
 
             } catch (err) {
-                console.error(err);
-                alert('Generation error. Please check your internet connection or try again.');
+                console.error('Gemini API Error:', err);
+                alert('API Response: ' + err.message);
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
