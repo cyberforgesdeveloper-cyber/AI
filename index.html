@@ -321,7 +321,7 @@ Return ONLY a valid JSON object matching this exact schema:
 `;
 
             try {
-                // Guaranteed active production model on Groq
+                // Strictly using llama-3.1-8b-instant (Always live & free)
                 const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
                     method: 'POST',
                     headers: { 
